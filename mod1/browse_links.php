@@ -1008,7 +1008,7 @@ class SC_browse_links {
 		';
 
 			// Finally, add the accumulated JavaScript to the template object:
-		$this->doc->JScode = '<link rel="stylesheet" type="text/css" href="../tiny_mce/themes/advanced/css/editor_popup.css" />
+		$this->doc->JScode = '
 <script language="javascript" type="text/javascript" src="../tiny_mce/tiny_mce_popup.js"></script>
 '.$this->doc->wrapScriptTags($JScode);
 
