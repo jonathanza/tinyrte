@@ -63,7 +63,7 @@ class tx_tinyrte_base extends t3lib_rteapi {
 
 		/**
 		 * Configure the RTE
-		 */ 
+		 */
 		$globalConf=unserialize($GLOBALS["TYPO3_CONF_VARS"]["EXT"]["extConf"]["tinyrte"]);
 		//t3lib_div::debug($globalConf);
 		$css=$globalConf["MCEstyle"];
@@ -72,7 +72,7 @@ class tx_tinyrte_base extends t3lib_rteapi {
 
 		/**
 		 * Override the values from the initialconfiguration with TS-Config
-		 */ 
+		 */
 		if($thisConfig["initial."]) {
 			foreach($thisConfig["addParams."] as $key => $val) {
 				$globalConf[$key]=$val;
@@ -93,16 +93,16 @@ class tx_tinyrte_base extends t3lib_rteapi {
 			}
 			$MCEConfig=str_replace(",,",",",$groupConfig.$BE_USER->user[tx_tinyrte_tinyrte_plugins]);
 		}
-	
+
 		$value = $this->transformContent('rte',$PA['itemFormElValue'],$table,$field,$row,$specConf,$thisConfig,$RTErelPath,$thePidValue);
 
 		/**
 		 * Go on if there buttons configured
-		 */ 
+		 */
 		if(strlen($MCEConfig)>2){
 			/**
 			 * override all configuration with values from TS-Config
-			 */ 
+			 */
 			$TS=t3lib_befunc::getPagesTSconfig($thePidValue);
 			$thisConfig=$TS["RTE."]["default."];
 
@@ -123,7 +123,7 @@ class tx_tinyrte_base extends t3lib_rteapi {
 
 			/**
 			 * TinyMCE-Template-Configuration
-			 */	
+			 */
 			if($thisConfig["templates."]["items."]) {
 				foreach($thisConfig["templates."]["items."] as $key => $val) {
 					$tinyTemplate.='
@@ -199,9 +199,9 @@ class tx_tinyrte_base extends t3lib_rteapi {
 				$globalConf["MCEbuttons"][$i]=str_replace(",,",",",$globalConf["MCEbuttons"][$i]);
 				if(substr($globalConf["MCEbuttons"][$i],0,1)==",") $globalConf["MCEbuttons"][$i]=substr($globalConf["MCEbuttons"][$i],1,strlen($globalConf["MCEbuttons"][$i]));
 			}
-	
-	
-	
+
+
+
 			/**
 			 * Remove double separators
 			 */
@@ -238,7 +238,7 @@ class tx_tinyrte_base extends t3lib_rteapi {
 			/**
 			 * Load the RTE
 			 */
-			
+
 			// a little hack to handle multiple instances of tinyRTE. At this time 100 RTE´s per Page can be handled.
 			for($count=1; $count<=100; $count++) {
 				$instances.='RTEarea'.$count.',';
@@ -308,11 +308,11 @@ $item.='
 				});
 
 
-				
+
 				/**
 				 * Here are the additional Typo3-Functions
 				 * At this time only "type" is used to
-				 * manage Link or Image functions 
+				 * manage Link or Image functions
 				 */
 				function fileBrowserCallBack(field_name, url, type, win) {
 					field=field_name;
@@ -360,12 +360,12 @@ $item.='
 							template["file"] = "'.$this->Path.'mod1/browse_links.php?news='.$thisConfig["newsSinglePid"].'&act="+act+expPage+"&mode=wizard&P[ext]=../'.t3lib_extMgm::siteRelPath("tinyrte").'&P[init]=tinyrte&P[formName]=' . $pObj->formName . '"+current+"&P[itemName]=data%5B'.$table.'%5D%5B'.$row["uid"].'%5D%5B'.$field.'%5D&P[fieldChangeFunc][TBE_EDITOR_fieldChanged]=TBE_EDITOR_fieldChanged%28%27'.$table.'%27%2C%27'.$row["uid"].'%27%2C%27'.$field.'%27%2C%27data%5B'.$table.'%5D%5B'.$row["uid"].'%5D%5B'.$field.'%5D%27%29%3B";
 							tinyMCE.activeEditor.windowManager.open(template);
 							return false;
-	
+
 						case "image":
 							template["file"] = "'.$this->Path.'mod2/rte_select_image.php?act=magic&RTEtsConfigParams='.$table.'%3A136%3A'.$field.'%3A29%3Atext%3A'.$row["pid"].'%3A";
-							
+
 							//template["file"] = "browser.php?mode=file&bparams=data['.$table.']['.$row["uid"].'][image]|||gif,jpg,jpeg,tif,bmp,pcx,tga,png,pdf,ai|";
-							
+
 							tinyMCE.activeEditor.windowManager.open(template);
 							return false;
 					}
@@ -379,7 +379,7 @@ $item.='
 				 * act		: Needed for Links, to transform the kind of link (internal, external, file, email)
 				 *
 				 * The "act"-Value we become from the URL of the Elementbrowser
-				 */ 
+				 */
 				function setTheValue(type,value,act) {
 					var set=false;
 					var prop=new Array();
@@ -388,7 +388,7 @@ $item.='
 					switch(type){
 						case "link":
 							//Build the attributes for an Link
-							if(act!="url" && act!="mail") host="'.$editorPath.'"; 
+							if(act!="url" && act!="mail") host="'.$editorPath.'";
 							var linkValue=value.split(" ");
 							switch(act) {
 								case "news":
@@ -408,7 +408,7 @@ $item.='
 								case "mail":
 									prop[0]["href"]="mailto:"+linkValue[0];
 								break;
-								
+
 							}
 							if(linkValue[1]) {
 								// is target a Popup or normal target?

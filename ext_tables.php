@@ -1,7 +1,7 @@
 <?php
 if (!defined ("TYPO3_MODE")) 	die ("Access denied.");
 $tempColumns = Array (
-	"tx_tinyrte_tinyrte_plugins" => Array (		
+	"tx_tinyrte_tinyrte_plugins" => Array (
 		'label' => 'LLL:EXT:tinyrte/locallang_db.php:be_users.tx_tinyrte_tinyrte_plugins',
 		'config' => Array (
 			'type' => 'select',

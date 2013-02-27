@@ -978,7 +978,7 @@ class SC_browse_links {
 					parent.close();
 				}
 			}
-                        
+
                         function setPos(e) {
                             curEvent = ((typeof event == "undefined")? e: event);
                             mouseButtonPos = "down";
@@ -987,7 +987,7 @@ class SC_browse_links {
                             var widthArray = tempWidth.split("p");
                             curWidth = parseInt(widthArray[0]);
                         }
-                        
+
                         function getPos(e){
                             if( mouseButtonPos == "down" ) {
                                 curEvent = ((typeof event == "undefined")? e: event);
@@ -1000,7 +1000,7 @@ class SC_browse_links {
                                 setWidth(newWidth);
                             }
                         }
-                        
+
                         function setWidth(newWidth) {
                                 document.getElementById("left").style.width = newWidth + "px";
                                 document.getElementById("right").style.width = 529-parseInt(document.getElementById("left").style.width)+"px";
@@ -1160,9 +1160,9 @@ class SC_browse_links {
 			// Starting content:
 		$content=$this->doc->startPage('{#typo3link.windowName}');
                 $content=str_replace("<body", '<body onmousemove="getPos(event)" onmouseup="mouseButtonPos=\'up\'"'.(($_COOKIE["browsewidth"] && $_GET["act"]!="url" && $_GET["act"]!="mail") ? ' onLoad="setWidth('.$_COOKIE["browsewidth"].')"' : ""), $content);
-                
-                
-                
+
+
+
 
 			// Initializing the action value, possibly removing blinded values etc:
 		$allowedItems = array_diff(explode(',','page,file,url,mail,news,spec'),t3lib_div::trimExplode(',',$this->thisConfig['blindLinkOptions'],1));
@@ -1225,7 +1225,7 @@ class SC_browse_links {
 
 			// Adding the menu and header to the top of page:
 		$content.=$this->printCurrentUrl($this->curUrlInfo['info']);
-		
+
 
 			// Depending on the current action we will create the actual module content for selecting a link:
 		switch($this->act)	{
@@ -1356,7 +1356,7 @@ class SC_browse_links {
 				}
 			break;
 			case 'news':
-				
+
 				$pagetree = t3lib_div::makeInstance('rtePageTree');
 				$tree=$pagetree->getBrowsableTree();
 				$cElements = $this->expandPage();
@@ -1370,7 +1370,7 @@ class SC_browse_links {
 							<td valign="top" style="width: 277px;">'.$cElements.'</td>
 						</tr>
 					</table>
-					';				
+					';
 
 			break;
 			case 'page':
@@ -1384,7 +1384,7 @@ class SC_browse_links {
 			<!--
 				Wrapper table for page tree / record list:
 			-->
-					
+
 					<table border="0" cellpadding="0" cellspacing="0" height="125">
 						<tr>
 							<td valign="top" style="width: 277px;"><fieldset><legend>'.$GLOBALS['LANG']->getLL('pageTree').'</legend><DIV id="left" STYLE="width: 265px; height: 240px; overflow-x:hidden ; overflow-y:scroll;"><table><tr><td>'.$tree.'</td></tr></table></div></fieldset></td>
@@ -1395,7 +1395,7 @@ class SC_browse_links {
 					';
 			break;
 		}
-		
+
 
 			// Target:
 		if ($this->act!='mail')	{
@@ -1463,7 +1463,7 @@ class SC_browse_links {
 					<legend>'.$GLOBALS['LANG']->getLL('target',1).'</legend>
 					  '.$ltarget.'
 				    </fieldset>';
-				
+
 
 				// Add some space
 			$content.='';

@@ -14,14 +14,14 @@
 				case "1":
 					output = lipsum.getLetters(document.forms[0].amount.value);
 					break;
-			}				
+			}
 			tinyMCE.execCommand('mceInsertContent', false, output);
 			tinyMCEPopup.close();
 		}
 	</script>
 	<base target="_self" />
 </head>
-<body> 
+<body>
 	<form onsubmit="insert();return false;">
 		<h3>{#lorem_dlg.title}</h3>
 		<div style="margin-top: 10px; margin-bottom: 10px">
@@ -54,5 +54,5 @@
 			</div>
 		</div>
 	</form>
-</body> 
-</html> 
+</body>
+</html>

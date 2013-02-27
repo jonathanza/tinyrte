@@ -1,7 +1,7 @@
 # cat=basic; type=input; label= Styles: Stylesheet to use in the Editor. Make sure that these Styles available in FE!
 	MCEstyle=typo3conf/ext/tinyrte/sample.css
 
-# cat=basic; type=input; label= RTE-Width: Initial width of the RTE. 
+# cat=basic; type=input; label= RTE-Width: Initial width of the RTE.
 	MCEwidth = 690
 
 # cat=basic; type=input; label= RTE-Height: Initial height of the RTE.
